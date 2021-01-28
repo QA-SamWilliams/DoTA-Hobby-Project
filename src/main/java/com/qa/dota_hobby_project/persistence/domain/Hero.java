@@ -5,52 +5,48 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.sun.istack.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Hero {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 
+	@NotNull
 	private String name;
+	@NotNull
 	private String primaryAttribute;
+	@NotNull
 	private float STR;
+	@NotNull
 	private float STR_gain;
+	@NotNull
 	private float AGI;
+	@NotNull
 	private float AGI_gain;
+	@NotNull
 	private float INT;
+	@NotNull
 	private float INT_gain;
+	@NotNull
 	private int minDMG;
+	@NotNull
 	private int maxDMG;
+	@NotNull
 	private float healthRegen;
+	@NotNull
 	private float manaRegen;
+	@NotNull
 	private int moveSpeed;
-
-	// EMPTY CONSTRUCTOR
-	public Hero() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	// FULL CONSTRUCTOR
-	public Hero(Long iD, String name, String primaryAttribute, float sTR, float sTR_gain, float aGI, float aGI_gain,
-			float iNT, float iNT_gain, int minDMG, int maxDMG, float healthRegen, float manaRegen, int moveSpeed) {
-		super();
-		ID = iD;
-		this.name = name;
-		this.primaryAttribute = primaryAttribute;
-		STR = sTR;
-		STR_gain = sTR_gain;
-		AGI = aGI;
-		AGI_gain = aGI_gain;
-		INT = iNT;
-		INT_gain = iNT_gain;
-		this.minDMG = minDMG;
-		this.maxDMG = maxDMG;
-		this.healthRegen = healthRegen;
-		this.manaRegen = manaRegen;
-		this.moveSpeed = moveSpeed;
-	}
 
 	public Long getID() {
 		return ID;
@@ -171,5 +167,4 @@ public class Hero {
 				+ INT_gain + ", healthRegen=" + healthRegen + ", manaRegen=" + manaRegen + "]";
 	}
 
-	
 }
