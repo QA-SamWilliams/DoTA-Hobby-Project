@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="#">
+    <title>DoTA Hobby Site</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">DoTA Hobby Site</h1>
+        <div class="row">
+            <div class="col-md">
+                <h2 class="text-center">Choose a Hero</h2>
+                <label for="HeroID">Search by Hero ID</label>
+                <input type="number" class="form-control" id="HeroID" placeholder="Hero ID: " name="HERO_ID" />
+                <br />
+                <button class="btn btn-primary text-center" id="findAllHeros" onclick="retrieveData()">Select Hero</button>
+            </div>
+            <div class="col-md">
+                <h2 class="text-center">Create a Hero</h2>
+                <label for="c-HeroName">Set Hero Name</label>
+                <input id="c-HeroName" type="text" class="form-control" placeholder="Enter your hero's name: " />
+                <br />
+                <label for="c-HeroLocalName">Set Hero Localized Name</label>
+                <input id="c-HeroLocalName" type="text" class="form-control" placeholder="Enter your hero's localized name: " />
+                <br />
+                <label for="c-HeroAttr">Set Primary Attribute ("STR", "AGI", "INT")</label>
+                <input id="c-HeroAttr" type="text" class="form-control" placeholder="Enter your hero's primary attribute name: " />
+                <br />
+                <label for="c-HeroItem">Set Hero Item (By ID)</label>
+                <input id="c-HeroItem" type="text" class="form-control" placeholder="Enter your hero's item ID: " />
+                <br />
+                <button class="btn btn-primary text-center" id="createHero" onclick="createHero()">Create Hero</button>
+                <br />
+            </div>
+            <div class="col-md">
+                <h2 class="text-center">Update a Hero</h2>
+                <label for="u-HeroId">Hero ID to Update</label>
+                <input id="u-HeroId" type="text" class="form-control" placeholder="ID" />
+                <br />
+                <label for="u-HeroName">Hero Name</label>
+                <input id="u-HeroName" type="text" class="form-control" placeholder="Name" />
+                <br />
+                <label for="u-Hero">Hero Primary Attribute ("STR", "AGI", "INT")</label>
+                <input id="status" type="text" class="form-control" placeholder="Status" />
+                <br />
+                <label for="u-HeroItem">Hero Item (By ID)</label>
+                <input id="u-HeroItem" type="text" class="form-control" placeholder="Item ID" />
+                <br />
+                <button class="btn btn-primary text-center" id="updateHero" onclick="updateHero()">Update Hero</button>
+            </div>
+            <div class="col-md">
+                <h2 class="text-center">Delete a Hero</h2>
+                <label for="d-HeroId">Hero ID</label>
+                <input id="d-HeroId" type="text" class="form-control" placeholder="ID" />
+                <br />
+                <button class="btn btn-primary text-center" id="deleteHero" onclick="delHero()">Delete Hero</button>
+            </div>
+        </div>
+        <div class="row">
+            <p class="output" id="output" />
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

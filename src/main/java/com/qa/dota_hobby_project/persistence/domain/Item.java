@@ -1,11 +1,16 @@
 package com.qa.dota_hobby_project.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.sun.istack.NotNull;
 
@@ -15,29 +20,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Hero {
+public class Item{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
-	@ManyToOne
-	private Item items;
+
 	@NotNull
 	private String name;
-	@NotNull
-	private String primaryAttribute;
-	@NotNull
-	private String localizedName;
 	
-	public Hero(Long iD, Item items, String name, String primaryAttribute, String localizedName) {
-		super();
-		ID = iD;
-		this.items = items;
-		this.name = name;
-		this.primaryAttribute = primaryAttribute;
-		this.localizedName = localizedName;
-	}
-	
-	
-	
+	@OneToMany(mappedBy = "items", fetch = FetchType.EAGER)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private List<Hero> heroList;
 }

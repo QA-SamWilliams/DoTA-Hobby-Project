@@ -13,49 +13,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.dota_hobby_project.persistence.domain.Hero;
-import com.qa.dota_hobby_project.persistence.dto.HeroDTO;
-import com.qa.dota_hobby_project.services.HeroServices;
+import com.qa.dota_hobby_project.persistence.domain.Item;
+import com.qa.dota_hobby_project.persistence.dto.ItemDTO;
+import com.qa.dota_hobby_project.services.ItemServices;
 
 @RestController
-@RequestMapping("/hero")
-public class HeroController {
+@RequestMapping("/item")
+public class ItemController {
 	
-	private HeroServices service;
+	private ItemServices service;
 	
-	public HeroController(HeroServices service) {
+	public ItemController(ItemServices service) {
         super();
         this.service = service;
     }
 	
 	// POST
 	@PostMapping("/create")
-	public ResponseEntity<HeroDTO> create(@RequestBody Hero hero) {
-		return new ResponseEntity<HeroDTO>(this.service.createHero(hero), HttpStatus.CREATED);
+	public ResponseEntity<ItemDTO> create(@RequestBody Item item) {
+		return new ResponseEntity<ItemDTO>(this.service.createItem(item), HttpStatus.CREATED);
 	}
 	
 	// GET ALL
 	@GetMapping("/readAll")
-	public ResponseEntity<List<HeroDTO>> readAll() {
+	public ResponseEntity<List<ItemDTO>> readAll() {
 		return ResponseEntity.ok(this.service.readAll());
 	}
 	
 	// GET
 	@GetMapping("/read/{id}")
-	public HeroDTO readHero(@PathVariable("id")Long id) {
-		return this.service.readHero(id);
+	public ItemDTO readItem(@PathVariable("id")Long id) {
+		return this.service.readItem(id);
 	}
 	
 	// PUT
 	@PutMapping("/update/{id}")
-	public ResponseEntity<HeroDTO> updateHero(@PathVariable("id")Long id, @RequestBody Hero hero) {
-        return new ResponseEntity<>(this.service.updateHero(id, hero), HttpStatus.ACCEPTED);
+	public ResponseEntity<ItemDTO> updateItem(@PathVariable("id")Long id, @RequestBody Item item) {
+        return new ResponseEntity<>(this.service.updateItem(id, item), HttpStatus.ACCEPTED);
 	}
 	
 	// DELETE
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<HeroDTO> deleteHero(@PathVariable Long id) {
-		return this.service.deleteHero(id) ?
+	public ResponseEntity<ItemDTO> deleteItem(@PathVariable Long id) {
+		return this.service.deleteItem(id) ?
 				new ResponseEntity<>(HttpStatus.NO_CONTENT) :
 				new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
