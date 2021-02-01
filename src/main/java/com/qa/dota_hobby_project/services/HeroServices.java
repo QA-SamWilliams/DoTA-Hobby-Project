@@ -1,9 +1,6 @@
 package com.qa.dota_hobby_project.services;
 
-<<<<<<< HEAD
-=======
 import org.modelmapper.ModelMapper;
->>>>>>> feature-hero-sam
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

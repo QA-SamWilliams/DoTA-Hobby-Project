@@ -1,10 +1,13 @@
 const getHeros = document.querySelector("#findAllHeros");
-const createUsers = document.querySelector("#createUser");
+const createHero = document.querySelector("#createHero");
 const regUsers = document.querySelector("#regUser");
 const c_HeroName = document.querySelector("#c-HeroName");
+const c_HeroLocalName = document.querySelector("#c-HeroLocalName");
+const c_HeroAttr = document.querySelector("#c-HeroAttr");
+const c_HeroItem = document.querySelector("c-HeroItem");
 
 const retrieveData = () => {
-    fetch("https://localhost:8080/hero/readAll")
+    fetch("/hero/readAll")
     .then(response => response.json())
     .then(json => {
         console.log(json.data);
@@ -19,11 +22,14 @@ const retrieveData = () => {
 }
 
 const createHero = () => {
-    fetch("https://localhost:8080/hero/create",{
+    fetch("/hero/create",{
         method: "POST",
         body: JSON.stringify({
-            email: "samwilliams180700@outlook.com",
-            password: "root"
+            name: c_HeroName.innerHTML,
+            localizedName: c_HeroLocalName.innerHTML,
+            primaryAttribute: c_HeroAttr.innerHTML,
+            itemlist: c_HeroItem.innerHTML
+
         }),
         headers: {
             "Content-Type": "application/json"
@@ -64,5 +70,5 @@ const loginSuccessful = () => {
 }
 
 regUsers.addEventListener('click', registerSuccessful);
-createUsers.addEventListener('click', createUser);
+createHero.addEventListener('click', createHero);
 getHeros.addEventListener('click', retrieveData);

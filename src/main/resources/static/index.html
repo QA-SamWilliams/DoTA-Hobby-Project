@@ -32,21 +32,23 @@
                 <button class="btn btn-primary text-center" id="findAllHeros" onclick="retrieveData()">Select Hero</button>
             </div>
             <div class="col-md">
-                <h2 class="text-center">Create a Hero</h2>
-                <label for="c-HeroName">Set Hero Name</label>
-                <input id="c-HeroName" type="text" class="form-control" placeholder="Enter your hero's name: " />
-                <br />
-                <label for="c-HeroLocalName">Set Hero Localized Name</label>
-                <input id="c-HeroLocalName" type="text" class="form-control" placeholder="Enter your hero's localized name: " />
-                <br />
-                <label for="c-HeroAttr">Set Primary Attribute ("STR", "AGI", "INT")</label>
-                <input id="c-HeroAttr" type="text" class="form-control" placeholder="Enter your hero's primary attribute name: " />
-                <br />
-                <label for="c-HeroItem">Set Hero Item (By ID)</label>
-                <input id="c-HeroItem" type="text" class="form-control" placeholder="Enter your hero's item ID: " />
-                <br />
-                <button class="btn btn-primary text-center" id="createHero" onclick="createHero()">Create Hero</button>
-                <br />
+                <div id="create">
+                   <h2 class="text-center">Create a Hero</h2>
+                    <label for="c-HeroName">Set Hero Name</label>
+                    <input id="c-HeroName" type="text" class="form-control" placeholder="Enter your hero's name: " />
+                    <br />
+                    <label for="c-HeroLocalName">Set Hero Localized Name</label>
+                    <input id="c-HeroLocalName" type="text" class="form-control" placeholder="Enter your hero's localized name: " />
+                    <br />
+                    <label for="c-HeroAttr">Set Primary Attribute ("STR", "AGI", "INT")</label>
+                    <input id="c-HeroAttr" type="text" class="form-control" placeholder="Enter your hero's primary attribute name: " />
+                    <br />
+                    <label for="c-HeroItem">Set Hero Item (By ID)</label>
+                    <input id="c-HeroItem" type="text" class="form-control" placeholder="Enter your hero's item ID: " />
+                    <br />
+                    <button class="btn btn-primary text-center" id="createHero" onclick="createHero()">Create Hero</button>
+                    <br /> 
+                </div>
             </div>
             <div class="col-md">
                 <h2 class="text-center">Update a Hero</h2>
